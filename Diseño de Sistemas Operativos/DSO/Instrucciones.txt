@@ -1,0 +1,31 @@
+Guía para usar los drivers:
+
+- Leds:
+  Primero escribimos "sudo insmod leds.ko"
+  Luego para que se enciendan las luces, escribimos:
+  ./bin2char.sh 00111111 > /dev/leds
+  Eso de arriba activaría todos los leds
+  Luego para apagarlos, hay que poner:
+  ./bin2char.sh 00000000 > /dev/leds
+  Podemos hacer un juego combinado para encender otras luces también.
+
+  Si queremos desinstalarlo, escribiríamos
+  sudo rmmod leds
+
+  - Speaker:
+    Para compilar la canción, ponemos
+    gcc "canción (en este caso sería) sonidoTetris.c)"
+    En este caso ya tenemos el archivo "a.out", en caso de no tener permiso para ejecutarlo:
+    chmod +x a.out
+    Escribimos:
+    sudo insmod speaker
+    Y luego ponemos:
+    ./a.out
+    Y sonará la musiquita
+    Para desinstalarlo, de nuevo rmmod:
+    sudo rrmod speaker
+
+    -Botones:
+    Botones, te pregunarás, ¿por qué incluye aquí botones si no está la carpeta botones?
+    Pues porque no he conseguido arreglarmelas para que funcione, así que no lo incluyo.
+    
